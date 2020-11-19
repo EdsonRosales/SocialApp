@@ -38,6 +38,7 @@ export const AuthProvider = ({children}) => {
           try {
             // Attempt login with permissions
             const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+            console.log(result)
 
             if (result.isCancelled) {
               throw 'User cancelled the login process';
@@ -56,7 +57,7 @@ export const AuthProvider = ({children}) => {
             // Sign-in the user with the credential
             await auth().signInWithCredential(facebookCredential);
           } catch(error) {
-            console.log({error});
+            console.log(error);
           }
         },
         register: async (email, password) => {
