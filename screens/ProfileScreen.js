@@ -5,10 +5,11 @@ import { AuthContext } from '../navigation/AuthProvider';
 
 const ProfileScreen = () => {
     const {user, logout} = useContext(AuthContext);
+    console.log(user);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome {user.uid}</Text>
+      <Text style={styles.text}>Welcome {user.displayName}</Text>
       <FormButton buttonTitle="Logout" onPress={() => logout()} />
     </View>
   );
